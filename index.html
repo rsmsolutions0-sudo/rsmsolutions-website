@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSM SOLUTIONS (PTY) LTD</title>
+    <style>
+        :root {
+            --primary-green: #0a5c36;
+            --primary-gold: #c5a059;
+            --text-dark: #333333;
+            --text-light: #f9f9f9;
+            --bg-light: #f0f2f5;
+            --white: #ffffff;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--white);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-bottom: 3px solid var(--primary-green);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+
+        .logo-container img {
+            height: 40px;
+        }
+
+        .logo-text {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hamburger menu button */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            gap: 4px;
+        }
+        .menu-toggle span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: var(--primary-green);
+            border-radius: 2px;
+            transition: var(--transition);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(10, 92, 54, 0.95) 0%, rgba(10, 92, 54, 0.8) 100%), url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80') center/cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 20px;
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 30px;
+            color: var(--text-light);
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.2s forwards;
+        }
+
+        .hero .btn {
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.4s forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary-gold);
+            color: var(--white);
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            border: 2px solid var(--primary-gold);
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--primary-gold);
+            transform: scale(1.05);
+        }
+
+        /* Section Formatting */
+        section {
+            padding: 80px 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--primary-green);
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-gold);
+            margin: 15px auto 0;
+            animation: expandWidth 0.8s ease forwards;
+            transform: scaleX(0);
+        }
+
+        @keyframes expandWidth {
+            to { transform: scaleX(1); }
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-text h3 {
+            color: var(--primary-gold);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .about-image {
+            background-color: var(--white);
+            padding: 20px;
+            border-left: 5px solid var(--primary-green);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        /* Services Section */
+        #services {
+            background-color: var(--white);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background-color: var(--bg-light);
+            padding: 40px 30px;
+            text-align: center;
+            border-radius: 6px;
+            border-bottom: 4px solid transparent;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-bottom: 4px solid var(--primary-gold);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: rotate(10deg) scale(1.1);
+        }
+
+        .service-card h4 {
+            color: var(--primary-green);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 40px;
+            border-top: 5px solid var(--primary-green);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .contact-info h4 {
+            color: var(--primary-gold);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .contact-item {
+            margin-bottom: 20px;
+            transition: transform 0.2s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateX(8px);
+        }
+
+        .contact-item strong {
+            display: block;
+            color: var(--primary-green);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: inherit;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-form input:focus, .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--primary-gold);
+            box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.2);
+        }
+
+        .contact-form button {
+            background-color: var(--primary-green);
+            color: white;
+            border: none;
+            padding: 12px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: var(--transition);
+            border-radius: 4px;
+        }
+
+        .contact-form button:hover {
+            background-color: #064025;
+            transform: scale(1.02);
+        }
+
+        /* Back to Top Button */
+        #backToTop {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary-green);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s ease, transform 0.3s ease, background 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            z-index: 999;
+            transform: scale(0.8);
+        }
+        #backToTop.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1);
+        }
+        #backToTop:hover {
+            background: var(--primary-gold);
+            transform: scale(1.1) !important;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-green);
+            color: var(--text-light);
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 5px;
+        }
+
+        /* ===== SCROLL ANIMATIONS ===== */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.2, 0.9, 0.3, 1), transform 0.8s cubic-bezier(0.2, 0.9, 0.3, 1);
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Staggered children */
+        .stagger-children > * {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.2, 0.9, 0.3, 1), transform 0.8s cubic-bezier(0.2, 0.9, 0.3, 1);
+        }
+        .stagger-children > *:nth-child(1) { transition-delay: 0.05s; }
+        .stagger-children > *:nth-child(2) { transition-delay: 0.15s; }
+        .stagger-children > *:nth-child(3) { transition-delay: 0.25s; }
+        .stagger-children > *:nth-child(4) { transition-delay: 0.35s; }
+
+        .stagger-children.visible > * {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            /* Mobile Menu - smooth slide */
+            .nav-links {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                padding: 0 5%;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                border-top: 2px solid var(--primary-green);
+                max-height: 0;
+                overflow: hidden;
+                opacity: 0;
+                transition: max-height 0.4s ease, opacity 0.3s ease, padding 0.3s ease, gap 0.3s ease;
+                padding-top: 0;
+                padding-bottom: 0;
+                gap: 0;
+                pointer-events: none;
+                visibility: hidden;
+            }
+
+            .nav-links.active {
+                max-height: 300px;
+                opacity: 1;
+                padding-top: 20px;
+                padding-bottom: 20px;
+                gap: 15px;
+                pointer-events: all;
+                visibility: visible;
+            }
+
+            .nav-links a {
+                opacity: 0;
+                transition: opacity 0.2s ease 0.1s;
+            }
+            .nav-links.active a {
+                opacity: 1;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .about-grid, .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#" class="logo-container">
+            <img src="https://imgur.com/f5cmWLm.png" alt="RSM Solutions Logo">
+            <span class="logo-text">RSM SOLUTIONS</span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1>Delivering Excellence</h1>
+        <p>Professional, reliable, and innovative solutions tailored to meet the dynamic needs of your business and property.</p>
+        <a href="#contact" class="btn">Get a Quote</a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">About Us</h2>
+        <div class="about-grid fade-in-up">
+            <div class="about-text">
+                <h3>Committed to Quality</h3>
+                <p>At RSM SOLUTIONS (PTY) LTD, we pride ourselves on precision, integrity, and exceptional service delivery. We work closely with our clients to understand their specific requirements and execute projects with the highest level of professionalism.</p>
+                <p>Whether you require technical expertise, project management, or specialized contracting, our dedicated team is equipped to handle challenges and deliver sustainable results.</p>
+            </div>
+            <div class="about-image">
+                <h4 style="color: var(--primary-green); margin-bottom: 10px;">Why Choose Us?</h4>
+                <ul style="list-style-position: inside; color: #555; line-height: 1.8;">
+                    <li>Tailored, client-centric solutions</li>
+                    <li>Uncompromising quality standards</li>
+                    <li>Transparent and competitive pricing</li>
+                    <li>Timely project execution</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <h2 class="section-title">Our Services</h2>
+        <div class="services-grid stagger-children" id="servicesGrid">
+            <div class="service-card" data-service="Technical Services">
+                <div class="service-icon">⚙️</div>
+                <h4>Technical Services</h4>
+                <p>Comprehensive technical support, installation, and maintenance solutions tailored to your operational requirements.</p>
+            </div>
+            <div class="service-card" data-service="Project Management">
+                <div class="service-icon">📊</div>
+                <h4>Project Management</h4>
+                <p>End-to-end management of projects ensuring they are completed on time, within budget, and to your exact specifications.</p>
+            </div>
+            <div class="service-card" data-service="Contracting">
+                <div class="service-icon">🏗️</div>
+                <h4>Contracting</h4>
+                <p>Professional contracting services focused on durability, safety, and modern industry standards.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-container fade-in-up">
+            <div class="contact-info">
+                <h4>Contact Details</h4>
+                <div class="contact-item">
+                    <strong>Phone</strong>
+                    067 099 8789
+                </div>
+                <div class="contact-item">
+                    <strong>Address</strong>
+                    Quarry Office Park<br>
+                    Hilton<br>
+                    3201
+                </div>
+                <div class="contact-item">
+                    <strong>Registration</strong>
+                    2026 / 502393 / 07
+                </div>
+            </div>
+            
+            <form class="contact-form" id="contactForm" action="https://formspree.io/f/xykrdolo" method="POST">
+    <!-- Formspree Subject Line -->
+    <input type="hidden" name="_subject" value="New Website Quote Request!">
+    
+    <input type="text" name="name" id="name" placeholder="Your Name" required>
+    <input type="email" name="email" id="email" placeholder="Your Email" required>
+    <input type="text" name="subject" id="subject" placeholder="Subject">
+    <textarea name="message" id="message" rows="4" placeholder="How can we help you?" required></textarea>
+    
+    <button type="submit" id="submitBtn">Send Message</button>
+    <div id="formFeedback" style="font-weight: bold; text-align: center; transition: all 0.3s ease;"></div>
+</form>
+        </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" title="Back to top">↑</button>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; <span id="currentYear"></span> RSM SOLUTIONS (PTY) LTD. All Rights Reserved.</p>
+        <p>Reg No: 2026 / 502393 / 07</p>
+    </footer>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        (function() {
+            'use strict';
+
+            // ---- 1. Mobile Hamburger Menu ----
+            const menuToggle = document.getElementById('menuToggle');
+            const navLinks = document.getElementById('navLinks');
+
+            menuToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function() {
+                    navLinks.classList.remove('active');
+                });
+            });
+
+            // ---- 2. Service Card Click - Show More Info ----
+            const serviceCards = document.querySelectorAll('.service-card');
+            serviceCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const serviceName = this.getAttribute('data-service') || 'this service';
+                    const desc = this.querySelector('p')?.textContent || 'Learn more about our services.';
+                    alert(`You clicked on "${serviceName}".\n\n${desc}`);
+                });
+            });
+
+           // ---- 3. Contact Form Submission via Formspree AJAX ----
+            const form = document.getElementById('contactForm');
+            const feedback = document.getElementById('formFeedback');
+            const submitBtn = document.getElementById('submitBtn');
+
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault(); // Prevent standard page redirect
+
+                feedback.textContent = 'Sending quote request...';
+                feedback.style.color = 'var(--primary-gold)';
+                if (submitBtn) submitBtn.disabled = true;
+
+                const formData = new FormData(form);
+
+                try {
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+
+                    if (response.ok) {
+                        feedback.textContent = '✅ Quote request sent successfully! We will be in touch shortly.';
+                        feedback.style.color = 'var(--primary-green)';
+                        form.reset(); // Clear form inputs
+                    } else {
+                        feedback.textContent = '❌ Something went wrong. Please try again or contact us directly.';
+                        feedback.style.color = '#d9534f';
+                    }
+                } catch (error) {
+                    feedback.textContent = '❌ Network error. Please check your connection.';
+                    feedback.style.color = '#d9534f';
+                } finally {
+                    if (submitBtn) submitBtn.disabled = false;
+                }
+            });
+
+            // ---- 4. Back to Top Button ----
+            const backToTopBtn = document.getElementById('backToTop');
+
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.classList.add('visible');
+                } else {
+                    backToTopBtn.classList.remove('visible');
+                }
+            });
+
+            backToTopBtn.addEventListener('click', function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // ---- 5. Auto-update footer year ----
+            const yearSpan = document.getElementById('currentYear');
+            if (yearSpan) {
+                yearSpan.textContent = new Date().getFullYear();
+            }
+
+            // ---- 6. Scroll-Triggered Animations (Intersection Observer) ----
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.15,
+                rootMargin: '0px 0px -20px 0px'
+            });
+
+            // Observe all .fade-in-up elements
+            document.querySelectorAll('.fade-in-up').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Observe .stagger-children elements
+            document.querySelectorAll('.stagger-children').forEach(el => {
+                observer.observe(el);
+            });
+
+        })();
+    </script>
+
+</body>
+</html>
