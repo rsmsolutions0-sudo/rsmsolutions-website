@@ -115,7 +115,7 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, rgba(10, 92, 54, 0.95) 0%, rgba(10, 92, 54, 0.8) 100%), url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80') center/cover;
+            background: linear-gradient(135deg, rgba(10, 92, 54, 0.95) 0%, rgba(10, 92, 54, 0.8) 100%), url('https://images.unsplash.com/photo-1590069261209-f8e9b8642343?auto=format&fit=crop&q=80') center/cover;
             height: 100vh;
             display: flex;
             flex-direction: column;
@@ -238,7 +238,7 @@
         }
 
         /* Services Section */
-        #services {
+        #capabilities {
             background-color: var(--white);
         }
 
@@ -496,7 +496,7 @@
         <ul class="nav-links" id="navLinks">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About Us</a></li>
-            <li><a href="#services">Services</a></li>
+            <li><a href="#capabilities">Capabilities</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
         <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
@@ -508,8 +508,8 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <h1>Delivering Excellence</h1>
-        <p>Professional, reliable, and innovative solutions tailored to meet the dynamic needs of your business and property.</p>
+        <h1>SMART SOLUTIONS, STRONGER FUTURES</h1>
+        <p>RSM SOLUTIONS (PTY) LTD is a supplier of precast concrete products, servicing the civil engineering infrastructural sector.</p>
         <a href="#contact" class="btn">Get a Quote</a>
     </section>
 
@@ -518,40 +518,40 @@
         <h2 class="section-title">About Us</h2>
         <div class="about-grid fade-in-up">
             <div class="about-text">
-                <h3>Committed to Quality</h3>
-                <p>At RSM SOLUTIONS (PTY) LTD, we pride ourselves on precision, integrity, and exceptional service delivery. We work closely with our clients to understand their specific requirements and execute projects with the highest level of professionalism.</p>
-                <p>Whether you require technical expertise, project management, or specialized contracting, our dedicated team is equipped to handle challenges and deliver sustainable results.</p>
+                <h3>Proudly South African</h3>
+                <p>RSM SOLUTIONS (PTY) LTD is a proudly South African Company, black owned and operated, which fully subscribes to the Broad-based Economic Empowerment Act, Section 9 of the broad-based Black Economic Empowerment Act 53 of 2003 and is a level 1 Contributor.</p>
+                <p>RSM SOLUTIONS (PTY) LTD is a sole owned company and possesses strategic knowledge and expertise to ensure client-focused and solution-oriented service delivery. We aspire to accomplish both technical and social targets, which augment the development of new economic dispensation.</p>
             </div>
             <div class="about-image">
                 <h4 style="color: var(--primary-green); margin-bottom: 10px;">Why Choose Us?</h4>
                 <ul style="list-style-position: inside; color: #555; line-height: 1.8;">
-                    <li>Tailored, client-centric solutions</li>
-                    <li>Uncompromising quality standards</li>
-                    <li>Transparent and competitive pricing</li>
-                    <li>Timely project execution</li>
+                    <li>Level 1 Contributor providing verified value and operational excellence</li>
+                    <li>Black owned and operated</li>
+                    <li>Supplies meeting the requirements as defined by SANS(SABS)</li>
+                    <li>Geared to deliver with a high priority on delivering on promise</li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services">
-        <h2 class="section-title">Our Services</h2>
+    <!-- Capabilities Section -->
+    <section id="capabilities">
+        <h2 class="section-title">Our Capabilities</h2>
         <div class="services-grid stagger-children" id="servicesGrid">
-            <div class="service-card" data-service="Technical Services">
-                <div class="service-icon">⚙️</div>
-                <h4>Technical Services</h4>
-                <p>Comprehensive technical support, installation, and maintenance solutions tailored to your operational requirements.</p>
-            </div>
-            <div class="service-card" data-service="Project Management">
-                <div class="service-icon">📊</div>
-                <h4>Project Management</h4>
-                <p>End-to-end management of projects ensuring they are completed on time, within budget, and to your exact specifications.</p>
-            </div>
-            <div class="service-card" data-service="Contracting">
+            <div class="service-card" data-service="Precast Concrete Supply">
                 <div class="service-icon">🏗️</div>
-                <h4>Contracting</h4>
-                <p>Professional contracting services focused on durability, safety, and modern industry standards.</p>
+                <h4>Precast Concrete</h4>
+                <p>A leading supplier of precast concrete products, uniquely servicing the civil engineering infrastructural sector.</p>
+            </div>
+            <div class="service-card" data-service="Quality Standards">
+                <div class="service-icon">✅</div>
+                <h4>SABS Certified Quality</h4>
+                <p>RSM SOLUTIONS (PTY) LTD supplies, meeting the requirements as defined by SANS(SABS) and holds the SABS mark.</p>
+            </div>
+            <div class="service-card" data-service="National Footprint">
+                <div class="service-icon">🌍</div>
+                <h4>Our Footprint</h4>
+                <p>Proudly serving civil infrastructural demands across KZN, Gauteng, Eastern Cape, Polokwane, and Mpumalanga[cite: 6].</p>
             </div>
         </div>
     </section>
@@ -564,7 +564,7 @@
                 <h4>Contact Details</h4>
                 <div class="contact-item">
                     <strong>Phone</strong>
-                    067 099 8789
+                    0670998789
                 </div>
                 <div class="contact-item">
                     <strong>Address</strong>
@@ -574,22 +574,21 @@
                 </div>
                 <div class="contact-item">
                     <strong>Registration</strong>
-                    2026 / 502393 / 07
+                    2026/502393/07
                 </div>
             </div>
             
             <form class="contact-form" id="contactForm" action="https://formspree.io/f/xykrdolo" method="POST">
-    <!-- Formspree Subject Line -->
-    <input type="hidden" name="_subject" value="New Website Quote Request!">
-    
-    <input type="text" name="name" id="name" placeholder="Your Name" required>
-    <input type="email" name="email" id="email" placeholder="Your Email" required>
-    <input type="text" name="subject" id="subject" placeholder="Subject">
-    <textarea name="message" id="message" rows="4" placeholder="How can we help you?" required></textarea>
-    
-    <button type="submit" id="submitBtn">Send Message</button>
-    <div id="formFeedback" style="font-weight: bold; text-align: center; transition: all 0.3s ease;"></div>
-</form>
+                <input type="hidden" name="_subject" value="New Website Quote Request!">
+                
+                <input type="text" name="name" id="name" placeholder="Your Name" required>
+                <input type="email" name="email" id="email" placeholder="Your Email" required>
+                <input type="text" name="subject" id="subject" placeholder="Subject">
+                <textarea name="message" id="message" rows="4" placeholder="How can we help you?" required></textarea>
+                
+                <button type="submit" id="submitBtn">Send Message</button>
+                <div id="formFeedback" style="font-weight: bold; text-align: center; transition: all 0.3s ease;"></div>
+            </form>
         </div>
     </section>
 
@@ -599,7 +598,7 @@
     <!-- Footer -->
     <footer>
         <p>&copy; <span id="currentYear"></span> RSM SOLUTIONS (PTY) LTD. All Rights Reserved.</p>
-        <p>Reg No: 2026 / 502393 / 07</p>
+        <p>REG NO: 2026/502393/07[cite: 6]</p>
     </footer>
 
     <!-- ===== JAVASCRIPT ===== -->
